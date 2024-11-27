@@ -3,10 +3,14 @@ import studentController from "../controllers/studentController";
 
 const router = express.Router();
 
-router.get("/student/:id", studentController.getStudent);
-router.post("/student", studentController.createStudent);
-router.get("/student", studentController.getAllStudent);
-router.put("/student/:id", studentController.updateStudent);
-router.delete("/student/:id", studentController.deleteStudent);
+router
+  .route("/student")
+  .post(studentController.createStudent)
+  .get(studentController.getAllStudent);
+router
+  .route("/student/:id")
+  .get(studentController.getStudent)
+  .put(studentController.updateStudent)
+  .delete(studentController.deleteStudent);
 
 export default router;
