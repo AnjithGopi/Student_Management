@@ -9,7 +9,14 @@ app.use(express.urlencoded({ extended: true }));
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/TYPESCRIPT_CRUD_APP";
 
-mongoose.connect(MONGO_URL);
+mongoose.connect(MONGO_URL).then(()=>{
+  console.log("Connected to MongoDB");
+})
+.catch((error)=>{
+
+  console.log("Error in connection",error.message)
+
+})
 
 app.use("/", router);
 

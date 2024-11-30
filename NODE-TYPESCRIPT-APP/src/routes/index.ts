@@ -7,6 +7,8 @@ router
   .route("/student")
   .post(studentController.createStudent)
   .get(studentController.getAllStudent);
+
+  
 router
   .route("/student/:id")
   .get(studentController.getStudent)
